@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.videob {
+  background-image: url(media/0f167bbfeb31d83e0805823a0b9a3c8c.gif)  ;  
+  background-size: cover; /* Hace que la imagen se ajuste al contenedor y lo cubra */
+  background-position: center; /* Centra la imagen tanto horizontal como verticalmente */
+  height: 100vh; /* 100% de la altura del viewport */
+  width: 100vw; /* 100% del ancho del viewport */
+}
+
