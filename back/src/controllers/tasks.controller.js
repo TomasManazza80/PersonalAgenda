@@ -37,8 +37,8 @@ export const updateTasks =async (req,res)=>{
     if(!task) return res.status(404).json({message:"Tarea no encontrada"})
     res.json(task)
 }
-export const deleteTasks =async (req,res)=>{
-    const task=await Task.findByIdAndDelete(req.params.id)
-    if(!task) return res.status(404).json({message:"Tarea no encontrada"})
-    return res.sendStatus(204);//Todo esta bien se elimina
-}
+export const deleteTasks = async (req, res) => {
+  const task = await Task.findByIdAndDelete(req.params.id);
+  if (!task) return res.status(404).json({ message: "Tarea no encontrada" });
+  return res.json({ message: "Tarea eliminada con éxito" });
+};

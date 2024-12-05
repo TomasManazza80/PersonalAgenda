@@ -62,6 +62,9 @@ function TaskFormPage(){
               <input type="date" {...register('date')}  
               className=" bg-black/40 w-full  text-white px-4 py-2 rounded-md my-2"/>
 
+
+
+
             <button className="w-1/2 pr-5 bg-indigo-500 px-2 py-2 rounded-md text-white">
                 Save
             </button>
