@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Esto es un comentario en CSS 
 .videob {
   background-image: url(media/0f167bbfeb31d83e0805823a0b9a3c8c.gif)  ;  
   background-size: cover; 
@@ -10,3 +12,258 @@
   width: 100vw; 
 }
 
+/* index.css */
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+/* Estilos para el Home */
+
+.bg-gray-100 {
+  background-color: #f5f5f5;
+}
+
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #1f2937, #3f3f46, #1f2937);
+}
+
+.text-gray-100 {
+  color: #f5f5f5;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-800 {
+  color: #ffffff;
+}
+
+.text-gray-900 {
+  color: #f7f7f7;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.bg-indigo-500 {
+  background-color: #6366f1;
+}
+
+.hover\:bg-indigo-600:hover {
+  background-color: #4f46e5;
+}
+
+.transition-all {
+  transition: all 0.3s;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+
+
+
+/* Home.css */
+
+.carousel .slide {
+  background: none;
+}
+
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* index.css o un archivo CSS correspondiente */
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.lg\:grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sm\:grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.text-blue-300 {
+  color: #7dd3fc;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #2563eb;
+}
+
+.bg-red-500 {
+  background-color: #ef4444;
+}
+
+.hover\:bg-red-600:hover {
+  background-color: #dc2626;
+}
+
+.transition-all {
+  transition: all 0.3s;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:max-h-full:hover {
+  max-height: 100%;
+}
+
+.hover\:overflow-auto:hover {
+  overflow: auto;
+}

@@ -23,7 +23,10 @@ function App(){
       
       <BrowserRouter>
 
-        <main className="container mx-auto px-10">
+        <main>
+         
+   
+       
         <Navbar/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
@@ -37,8 +40,8 @@ function App(){
             <Route path='/profile' element={<ProfilePage/>}/>
           </Route>
           </Routes> 
-          
-        </main>
+          </main>
+
       </BrowserRouter>
       </TaskProvider>
     </AuthProvider>

@@ -2,7 +2,6 @@ import { useTasks } from "../Context/TasksContext";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 
-
 import days from "dayjs";
 import utc from "dayjs/plugin/utc";
 days.extend(utc);
@@ -21,9 +20,6 @@ function TaskCard({ task, onTaskDeleted }) {
           confirmButtonText: 'Sí, eliminarlo!'
       }).then((result) => {
           if (result.isConfirmed) {
-            
-            // agregar la logica de eliminar con axios aqui
-            
               deleteTask(task._id).then(() => {
                   Swal.fire(
                       'Eliminado!',
@@ -37,27 +33,26 @@ function TaskCard({ task, onTaskDeleted }) {
   };
 
   return (
-      <div className="bg-black/60 max-w-md w-full p-10 rounded-full">
-          <header className="flex justify-between">
-              <h1 className="text-white text-2xl font-bold">{task.title}</h1>
+      <div className="bg-gray-800 max-w-md w-full p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:max-h-full hover:overflow-auto">
+          <header className="flex justify-between mb-4">
+              <h1 className="text-blue-300 text-xl font-bold">{task.title}</h1>
               <div className="flex gap-x-2 items-center">
                   <button 
-                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-full transition-all duration-300"
                       onClick={handleDelete}
                   >
                       Eliminar
                   </button>
                   <button>
                       <Link to={`/tasks/${task._id}`}
-                          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Editar</Link>
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-full transition-all duration-300">Editar</Link>
                   </button>
               </div>
           </header>
-          <p className="text-slate-300 truncate max-w-sm">{task.description}</p>
-          <p className="text-white">{days(task.date).utc().format("DD/MM/YY")}</p>
+          <p className="text-gray-400 mb-4">{task.description}</p>
+          <p className="text-gray-500">{days(task.date).utc().format("DD/MM/YY")}</p>
       </div>
   );
 }
 
-
-export default TaskCard
+export default TaskCard;
