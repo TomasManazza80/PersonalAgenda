@@ -6,34 +6,21 @@ import '../index.css';
 function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
-      {/* Header */}
-      <header className="text-center py-12 bg-black shadow-md">
-        <h1 className="text-6xl font-bold text-white tracking-wide">
-          Bienvenido a Tu Agenda Personal
-        </h1>
-        <p className="text-lg mt-4 text-gray-400">
-          Organiza tu vida como nunca antes.
-        </p>
-        <a
-          href="#features"
-          className="mt-6 inline-block bg-white text-black font-medium py-3 px-8 rounded-lg shadow-md hover:bg-gray-300 transition duration-300"
-        >
-          Comenzar
-        </a>
-      </header>
-
-      <main className="flex-grow px-8">
-        {/* Carousel Section */}
-        <section id="features" className="mb-16">
-          <h2 className="text-4xl font-semibold text-center text-white mb-6">
-            Explora nuestras funcionalidades
-          </h2>
-          <Carousel
-            showArrows
-            autoPlay
-            infiniteLoop
-            showThumbs={false}
-            className="my-8 max-w-4xl mx-auto"
+      <main className="flex-grow p-8">
+        <section id="home" className="mb-16 text-center">
+          <h1 className="text-5xl font-extrabold mb-6 text-gray-900">Bienvenido a Tu Página Profesional</h1>
+          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">Diseño elegante y minimalista para tu negocio. Descubre cómo podemos ayudarte a destacar en el mercado con soluciones personalizadas y efectivas.</p>
+          <a href="#contact" className="mt-8 inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300">Contáctanos</a>
+        </section>
+        <section id="about" className="mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">Sobre Nosotros</h2>
+          <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">Somos una empresa comprometida con la excelencia y la innovación. Nuestro equipo está dedicado a ofrecer servicios de alta calidad que cumplen con las expectativas de nuestros clientes.</p>
+          <Carousel 
+            showArrows={true} 
+            autoPlay={true} 
+            infiniteLoop={true} 
+            showThumbs={false} 
+            className="my-8"
           >
             <div>
               <img

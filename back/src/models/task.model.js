@@ -16,7 +16,11 @@ const taskSchema=new mongoose.Schema({
      user:{
         type:mongoose.Schema.Types.ObjectId,ref:'User',
         required:true,
-     }
+     },
+     difficulty: {
+        type: String,
+        enum: ['Fácil', 'Media', 'Difícil'] // ejemplo de valores permitidos
+      }
     },{
         timestamps:true    
 })
