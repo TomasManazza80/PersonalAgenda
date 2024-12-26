@@ -50,9 +50,11 @@ function TaskCard({ task, onTaskDeleted }) {
               </div>
           </header>
           <p className="text-gray-400 mb-4">{task.description}</p>
-          <p className="text-gray-500">{days(task.date).utc().format("DD/MM/YY")}</p>
+          <p className="text-gray-500 mb-4">{days(task.date).utc().format("DD/MM/YY")}</p>
+          <p className="text-gray-500">Dificultad: {task.difficulty}</p>
       </div>
   );
 }
 
 export default TaskCard;
+

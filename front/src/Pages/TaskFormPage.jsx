@@ -1,75 +1,99 @@
-import {useForm} from "react-hook-form";
-import { useTasks } from "../Context/TasksContext";
-import {useNavigate,useParams} from "react-router-dom";
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import dayjs from 'dayjs';
+import { createTaskRequest, updateTaskRequest, getTaskRequest } from '../api/tasks';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-dayjs.extend(utc);
+const TaskForm = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const params = useParams();
+  const [data, setData] = useState({});
 
-function TaskFormPage(){
-  const {register,handleSubmit,setValue}=useForm();
-  const {createTask,getTask, updateTask}=useTasks();
-  const navigate=useNavigate();
-  const params=useParams();
-
-  useEffect(()=>{
-    async function loadTask(){
-      if(params.id){
-        const task=await getTask(params.id);
-        console.log(task)
-        setValue('title',task.title);
-        setValue('description',task.description);
-        setValue("date",dayjs(task.date).utc().format("YYYY-MM-DD"));
-      }
-    }
+  useEffect(() => {
     loadTask();
-  },[]);
+  }, []);
 
-  const onSubmit=handleSubmit((data)=>{
-    const dataValid={
+  const loadTask = async () => {
+    if (params.id) {
+      const task = await getTaskRequest(params.id);
+      setData(task.data);  // Asegúrate de usar task.data para acceder a los datos reales
+    }
+  };
+
+  const onSubmit = handleSubmit((data) => {
+    const dataValid = {
       ...data,
-      date:data.date ? dayjs.utc(data.date).format():dayjs.utc().format(),
-    }
-    //if(data.date) dataValid.date=dayjs.utc(data.date).format();
-    
-    if(params.id){
-      updateTask(params.id,dataValid);
-    }else{
-      createTask(dataValid);
-    }
-    navigate('/tasks');
+      date: data.date ? dayjs.utc(data.date).format() : dayjs.utc().format(),
+      difficulty: data.difficulty || "Fácil",
+    };
 
+    if (params.id) {
+      updateTaskRequest(params.id, dataValid);
+    } else {
+      createTaskRequest(dataValid);
+    }
+    navigate("/tasks");
   });
-  return(
-    <div className="bg-black/60 w-full p-10 rounded-lg h-full p-10">
-        <form onSubmit={onSubmit}>
-          <label htmlFor="title" class='text-white'>Título</label>
-            <input
-                type="text"
-                placeholder="Title"
-                {...register("title")}
-                
-                className="bg-black/40 w-full text-white px-4 py-2 rounded-md my-2"
-                autoFocus
-            />
-            <label htmlFor="description" class='text-white'>Descripcion</label>
 
-            <textarea rows="3" placeholder="Description" {...register("description")}
-            className=" bg-black/40 w-full  text-white px-4 py-2 rounded-md my-2">
-            </textarea>
-            <label htmlFor="date" class='text-white'>Date</label>
-              <input type="date" {...register('date')}  
-              className=" bg-black/40 w-full  text-white px-4 py-2 rounded-md my-2"/>
-
-
-
-
-            <button className="w-1/2 pr-5 bg-indigo-500 px-2 py-2 rounded-md text-white">
-                Save
-            </button>
-        </form>
-    </div>
+  return (
+    <form onSubmit={onSubmit} className="max-w-xl mx-auto bg-white p-8 shadow-md rounded-lg">
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Título:
+        </label>
+        <input
+          type="text"
+          defaultValue={data.title}  // Usar el valor por defecto
+          {...register('title', { required: true })}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        {errors.title && <p className="text-red-500 text-xs italic">Por favor, ingresa un título.</p>}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Descripción:
+        </label>
+        <textarea
+          defaultValue={data.description}  // Usar el valor por defecto
+          {...register('description', { required: true })}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        {errors.description && <p className="text-red-500 text-xs italic">Por favor, ingresa una descripción.</p>}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Fecha:
+        </label>
+        <input
+          type="date"
+          defaultValue={data.date}  // Usar el valor por defecto
+          {...register('date')}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Dificultad:
+        </label>
+        <select
+          defaultValue={data.difficulty}  // Usar el valor por defecto
+          {...register('difficulty')}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="Fácil">Fácil</option>
+          <option value="Media">Media</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Guardar
+      </button>
+    </form>
   );
 };
-export default TaskFormPage
+
+export default TaskForm;

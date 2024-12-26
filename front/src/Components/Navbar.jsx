@@ -12,16 +12,16 @@ function Navbar() {
         {isAuthenticated ? (
           <>
             <li className="text-white text-lg">
-              Bienvenido {user.username}
+              Bienvenido {user.username} 
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/add-task"
                 className="bg-indigo-400 hover:bg-indigo-300 text-white px-4 py-2 rounded-full transition-all duration-300"
               >
                 Agrega una tarea
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/"

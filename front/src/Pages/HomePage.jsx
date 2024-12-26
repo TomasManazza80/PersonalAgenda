@@ -8,8 +8,8 @@ function Home() {
     <div className="min-h-screen flex flex-col bg-black text-white">
       <main className="flex-grow p-8">
         <section id="home" className="mb-16 text-center">
-          <h1 className="text-5xl font-extrabold mb-6 text-gray-900">Bienvenido a Tu Página Profesional</h1>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">Diseño elegante y minimalista para tu negocio. Descubre cómo podemos ayudarte a destacar en el mercado con soluciones personalizadas y efectivas.</p>
+          <h1 className="text-5xl font-extrabold mb-6 text-gray-900">Organiza tus Objetivos</h1>
+          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">Utiliza nuesta IA  para organizar tus objetivos y lograr tus metas.</p>
           <a href="#contact" className="mt-8 inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300">Contáctanos</a>
         </section>
         <section id="about" className="mb-16 text-center">
